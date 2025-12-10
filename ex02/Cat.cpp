@@ -1,66 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-alme <fde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 21:49:52 by fde-alme          #+#    #+#             */
-/*   Updated: 2025/12/10 19:57:02 by fde-alme         ###   ########.fr       */
+/*   Created: 2025/12/09 21:46:50 by fde-alme          #+#    #+#             */
+/*   Updated: 2025/12/10 19:59:38 by fde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 #include <iostream>
 
-Dog::Dog(void) :
-	Animal("Dog"),
+Cat::Cat(void) :
+	AAnimal("Cat"),
 	_ideas(new Brain())
 {
-	std::cout << "Dog default constructor called." << std::endl;
+	std::cout << "Cat default constructor called." << std::endl;
 }
 
-Dog::Dog(std::string const ideas[]) :
-	Animal("Dog"),
+Cat::Cat(std::string const ideas[]) :
+	AAnimal("Cat"),
 	_ideas(new Brain(ideas))
 {
 	std::cout << "Dog parameterized constructor called." << std::endl;
 }
 
-Dog::Dog(std::string const &type, std::string const ideas[]) :
-	Animal(type),
+Cat::Cat(std::string const &type, std::string const ideas[]) :
+	AAnimal(type),
 	_ideas(new Brain(ideas))
 {
-	std::cout << "Dog parameterized constructor called." << std::endl;
+	std::cout << "Cat parameterized constructor called." << std::endl;
 }
 
-Dog::Dog(Dog const &other) :
-	Animal(other),
+Cat::Cat(Cat const &other) :
+	AAnimal(other),
 	_ideas(new Brain(*other._ideas))
 {
-	std::cout << "Dog copy constructor called." << std::endl;
+	std::cout << "Cat copy constructor called." << std::endl;
 }
 
-Dog::~Dog(void)
+Cat::~Cat(void)
 {
 	delete _ideas;
-	std::cout << "Dog destructor called." << std::endl;
+	std::cout << "Cat destructor called." << std::endl;
 }
 
-Dog	&Dog::operator=(Dog const &other)
+Cat	&Cat::operator=(Cat const &other)
 {
 	if (this != &other)
 	{
-		Animal::operator=(other);
+		AAnimal::operator=(other);
 		delete _ideas;
 		_ideas = new Brain(*other._ideas);
 	}
 
-	std::cout << "Dog copy assignment operator called." << std::endl;
+	std::cout << "Cat copy assignment operator called." << std::endl;
 	return (*this);
 }
 
-void	Dog::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << "Woof! Woof!" << std::endl;
+	std::cout << "Meow! Meow!" << std::endl;
 }

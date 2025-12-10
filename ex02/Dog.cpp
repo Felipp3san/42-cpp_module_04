@@ -6,7 +6,7 @@
 /*   By: fde-alme <fde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 21:49:52 by fde-alme          #+#    #+#             */
-/*   Updated: 2025/12/10 19:57:02 by fde-alme         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:58:05 by fde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include <iostream>
 
 Dog::Dog(void) :
-	Animal("Dog"),
+	AAnimal("Dog"),
 	_ideas(new Brain())
 {
 	std::cout << "Dog default constructor called." << std::endl;
 }
 
 Dog::Dog(std::string const ideas[]) :
-	Animal("Dog"),
+	AAnimal("Dog"),
 	_ideas(new Brain(ideas))
 {
 	std::cout << "Dog parameterized constructor called." << std::endl;
 }
 
 Dog::Dog(std::string const &type, std::string const ideas[]) :
-	Animal(type),
+	AAnimal(type),
 	_ideas(new Brain(ideas))
 {
 	std::cout << "Dog parameterized constructor called." << std::endl;
 }
 
 Dog::Dog(Dog const &other) :
-	Animal(other),
+	AAnimal(other),
 	_ideas(new Brain(*other._ideas))
 {
 	std::cout << "Dog copy constructor called." << std::endl;
@@ -51,7 +51,7 @@ Dog	&Dog::operator=(Dog const &other)
 {
 	if (this != &other)
 	{
-		Animal::operator=(other);
+		AAnimal::operator=(other);
 		delete _ideas;
 		_ideas = new Brain(*other._ideas);
 	}
