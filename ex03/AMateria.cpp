@@ -25,10 +25,8 @@ AMateria::~AMateria(void)
 
 AMateria	&AMateria::operator=(AMateria const &other)
 {
-	if (this != &other)
-	{
-		_type = other._type;
-	}
+	(void) other;
+	// Do not copy _type, since it's bound to the Class.
 
 	std::cout << "AMateria copy assignment operator called." << std::endl;
 	return (*this);
@@ -39,7 +37,7 @@ std::string const	&AMateria::getType(void) const
 	return (_type);
 }
 
-void		AMateria::use(ICharacter &type)
+void	AMateria::use(ICharacter &type)
 {
 	(void) type;
 }

@@ -6,7 +6,7 @@
 /*   By: fde-alme <fde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:19:29 by fde-alme          #+#    #+#             */
-/*   Updated: 2025/12/11 18:56:22 by fde-alme         ###   ########.fr       */
+/*   Updated: 2025/12/11 20:40:07 by fde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,6 @@ std::string	const	Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	if (_slotsInUse == INV_SIZE)
-	{
-		std::cout
-			<< "Character: " << _name
-			<< " inventory is full." << std::endl;
-		return ;
-	}
-
 	if (m == NULL)
 	{
 		std::cout
@@ -133,11 +125,21 @@ void	Character::equip(AMateria *m)
 		return ;
 	}
 
+	if (_slotsInUse == INV_SIZE)
+	{
+		std::cout
+			<< "Character: " << _name
+			<< " inventory is full." << std::endl;
+		delete m;
+		return ;
+	}
+
 	for (int i = 0; i < INV_SIZE; i++)
 	{
 		if (!_inventory[i])
 		{
 			_inventory[_slotsInUse++] = m->clone();
+			delete m;
 			break ;
 		}
 	}
@@ -213,7 +215,7 @@ void	Character::listEquipments(void) const
 		std::cout
 			<< (_inventory[i] ? _inventory[i]->getType() : "EMPTY");
 
-		if (i != INV_SIZE -1)
+		if (i != INV_SIZE-1)
 		{
 			std::cout
 				<< " || ";

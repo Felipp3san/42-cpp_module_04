@@ -6,7 +6,7 @@
 /*   By: fde-alme <fde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:53:15 by fde-alme          #+#    #+#             */
-/*   Updated: 2025/12/11 16:51:00 by fde-alme         ###   ########.fr       */
+/*   Updated: 2025/12/11 20:40:11 by fde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ Cure	*Cure::clone(void)
 
 void	Cure::use(ICharacter &type)
 {
-	std::cout << "Cure: * heals" << type.getName() << "’s wounds *" << std::endl;
+	std::cout << "Cure: * heals " << type.getName() << "’s wounds *" << std::endl;
 }
